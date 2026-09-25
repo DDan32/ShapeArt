@@ -6,21 +6,15 @@ let distanceB = 50.0
 struct ContentView: View {
     var body: some View {
         ZStack {
-            HairView()
+            HairBottomBackView()
+                //.stroke(Color.black, lineWidth: 5)
+                .fill(Color.portraitHairDark)
+                .offset(x: 5, y: 5)
+            HairBottomBackView()
+                .stroke(Color.black, lineWidth: 5)
+                .fill(Color.portraitHairDark1)
             ClothesBaseView()
             NeckView()
-            HairCurveBotView()
-                .fill(Color.portraitHairDark)
-//            HairCurveBotView()
-//                .fill(Color.portraitHairDark1)
-//                .offset(x: -3, y: 0)
-            HairCurveBotView()
-                .fill(Color.portraitHairDark)
-                .scaleEffect(x: -1, y: 1)
-//            HairCurveBotView()
-//                .fill(Color.portraitHairDark1)
-//                .scaleEffect(x: -1, y: 1)
-//                .offset(x: -3, y: 0)
             FaceView()
             MouthView()
                 .stroke(Color.brown, lineWidth: 3)
@@ -37,778 +31,322 @@ struct ContentView: View {
             BeltView()
             BadgesView()
             SleevesView()
-            HairCurveRightView()
+            HairTopView()
+                //.stroke(Color.black, lineWidth: 5)
                 .fill(Color.portraitHairDark)
-////            HairCurveRightView()
-////                .fill(Color.portraitHairDark1)
-////                .offset(x: -3, y: 0)
-//
-//            HairCurveMidtoLeftView()
-//                .fill(Color.portraitHairDark)
-////            HairCurveMidtoLeftView()
-////                .fill(Color.portraitHairDark1)
-////                .offset(x: -3, y: 0)
-//
-//            HairCurveMidtoRightView()
-//                .fill(Color.portraitHairDark)
-////            HairCurveMidtoRightView()
-////                .fill(Color.portraitHairDark1)
-////                .offset(x: -3, y: 0)
-//
-//            HairCurveLeftView()
-//                .fill(Color.portraitHairDark)
-////            HairCurveLeftView()
-////                .fill(Color.portraitHairDark1)
-////                .offset(x: -3, y: 0)
-//
-//            HairCurveTopView()
-//                .fill(Color.portraitHairDark)
-////            HairCurveTopView()
-////                .fill(Color.portraitHairDark1)
-////                .offset(x: -3, y: 0)
-            HairShadowView()
-                .stroke(Color.black, lineWidth: 3)
-                //.fill(Color.portraitEyes)
+                .offset(x: 5, y: 5)
+            HairTopView()
+                .stroke(Color.black, lineWidth: 5)
+                .fill(Color.portraitHairDark1)
+            HairBottomFrontView()
+                //.stroke(Color.black, lineWidth: 5)
+                .fill(Color.portraitHairDark)
+                .offset(x: 5, y: 5)
+            HairBottomFrontView()
+                .stroke(Color.black, lineWidth: 5)
+                .fill(Color.portraitHairDark1)
+            HairTop1View()
+                .stroke(Color.black, lineWidth: 5)
+                .fill(Color.portraitHairLight)
 
+            HairDecorateView()
         }
     }
 }
-// MARK: - 髮輪廓形狀 (Path)
-struct HairShadowView: Shape {
+// MARK: - 瀏海1髮輪廓形狀 (Path)
+struct HairTop1View: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
 
-//        //Right
-//        path.move(to: CGPoint(x: 734, y: 512))
-//        path.addQuadCurve(to: CGPoint(x: 800, y: 600   ), control: CGPoint(x: 740, y: 550))
-//        path.addQuadCurve(to: CGPoint(x: 770, y: 508   ), control: CGPoint(x: 765, y: 529))
-//        path.addQuadCurve(to: CGPoint(x: 828, y: 549   ), control: CGPoint(x: 790, y: 529))
-//        path.addQuadCurve(to: CGPoint(x: 770, y: 464   ), control: CGPoint(x: 790, y: 529))
-//        path.addQuadCurve(to: CGPoint(x: 820, y: 479   ), control: CGPoint(x: 790, y: 479))
-//        path.addQuadCurve(to: CGPoint(x: 780, y: 419   ), control: CGPoint(x: 790, y: 479))
-//        path.addQuadCurve(to: CGPoint(x: 900, y: 380   ), control: CGPoint(x: 820, y: 429))
-//        path.addQuadCurve(to: CGPoint(x: 800, y: 275   ), control: CGPoint(x: 790, y: 420))
-//        path.addQuadCurve(to: CGPoint(x: 930, y: 300   ), control: CGPoint(x: 855, y: 459))
-//        path.addQuadCurve(to: CGPoint(x: 809, y: 233   ), control: CGPoint(x: 850, y: 355))
-//        path.addQuadCurve(to: CGPoint(x: 930, y: 180   ), control: CGPoint(x: 860, y: 329))
-//        path.addCurve(
-//            to: CGPoint(x: 580, y: 100),
-//            control1: CGPoint(x: 790, y: 300),
-//            control2: CGPoint(x: 840, y: -50)
-//        )
-//        path.addQuadCurve(to: CGPoint(x: 590, y: 220   ), control: CGPoint(x: 570, y: 160))
-//        path.addLine(to: CGPoint(x: 695, y: 220))
-//        path.addQuadCurve(to: CGPoint(x: 734, y: 512   ), control: CGPoint(x: 750, y: 280))
-//        
-//        path.move(to: CGPoint(x: 640, y: 220))
-//        path.addCurve(
-//            to: CGPoint(x: 700, y: 550),
-//            control1: CGPoint(x: 680, y: 80),
-//            control2: CGPoint(x: 750, y: 350)
-//        )
-//        path.addCurve(
-//            to: CGPoint(x: 620, y: 220),
-//            control1: CGPoint(x: 900, y: 350),
-//            control2: CGPoint(x: 650, y: 20)
-//        )
-//      
-        
+        path.move(to: CGPoint(x: 490, y: 120))
+        path.addQuadCurve(
+            to: CGPoint(x: 205, y: 430),
+            control: CGPoint(x: 200, y: 130)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 80, y: 390),
+            control: CGPoint(x: 200, y: 500)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 185, y: 320),
+            control: CGPoint(x: 170, y: 400)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 490, y: 120),
+            control: CGPoint(x: 220, y: 100)
+        )
+
+        path.move(to: CGPoint(x: 405, y: 80))
+        path.addQuadCurve(
+            to: CGPoint(x: 205, y: 130),
+            control: CGPoint(x: 310, y: 50)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 150, y: 230),
+            control: CGPoint(x: 100, y: 210)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 240, y: 70),
+            control: CGPoint(x: 30, y: 230)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 405, y: 80),
+            control: CGPoint(x: 360, y: 30)
+        )
+
+        return path
+    }
+}
+
+// MARK: - 下前頭髮輪廓形狀
+struct HairBottomFrontView: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+
+        path.move(to: CGPoint(x: 320, y: 580))
+        path.addQuadCurve(
+            to: CGPoint(x: 450, y: 730),
+            control: CGPoint(x: 350, y: 720)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 400, y: 750),
+            control: CGPoint(x: 450, y: 750)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 460, y: 820),
+            control: CGPoint(x: 420, y: 820)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 320, y: 580),
+            control: CGPoint(x: 390, y: 920)
+        )
+
+        path.move(to: CGPoint(x: 712, y: 580))
+        path.addQuadCurve(
+            to: CGPoint(x: 580, y: 730),
+            control: CGPoint(x: 650, y: 770)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 680, y: 740),
+            control: CGPoint(x: 640, y: 770)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 580, y: 820),
+            control: CGPoint(x: 650, y: 820)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 720, y: 740),
+            control: CGPoint(x: 650, y: 870)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 712, y: 580),
+            control: CGPoint(x: 760, y: 660)
+        )
+
+        return path
+    }
+}
+
+// MARK: - 下後頭髮輪廓形狀
+struct HairBottomBackView: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+
+        path.move(to: CGPoint(x: 260, y: 500))
+        path.addQuadCurve(
+            to: CGPoint(x: 220, y: 750),
+            control: CGPoint(x: 300, y: 770)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 340, y: 650),
+            control: CGPoint(x: 340, y: 770)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 250, y: 800),
+            control: CGPoint(x: 350, y: 870)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 370, y: 890),
+            control: CGPoint(x: 350, y: 970)
+        )
+        path.addLine(to: CGPoint(x: 650, y: 890))
+        path.addQuadCurve(
+            to: CGPoint(x: 790, y: 800),
+            control: CGPoint(x: 700, y: 970)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 700, y: 650),
+            control: CGPoint(x: 650, y: 950)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 800, y: 750),
+            control: CGPoint(x: 720, y: 880)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 750, y: 500),
+            control: CGPoint(x: 710, y: 780)
+        )
+
+        return path
+    }
+}
+// MARK: - 髮頂輪廓形狀
+struct HairTopView: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+
         //Full
         path.move(to: CGPoint(x: 310, y: 450))
-        path.addQuadCurve(to: CGPoint(x: 350, y: 550   ), control: CGPoint(x: 300, y: 470))
-        path.addQuadCurve(to: CGPoint(x: 320, y: 520   ), control: CGPoint(x: 330, y: 540))
-        path.addQuadCurve(to: CGPoint(x: 360, y: 600   ), control: CGPoint(x: 320, y: 550))
-        path.addQuadCurve(to: CGPoint(x: 250, y: 440   ), control: CGPoint(x: 260, y: 550))
-        path.addQuadCurve(to: CGPoint(x: 275, y: 530   ), control: CGPoint(x: 230, y: 500))
-        path.addQuadCurve(to: CGPoint(x: 245, y: 380   ), control: CGPoint(x: 210, y: 520))
-        path.addQuadCurve(to: CGPoint(x: 245, y: 350   ), control: CGPoint(x: 238, y: 360))
-        path.addQuadCurve(to: CGPoint(x: 160, y: 330   ), control: CGPoint(x: 200, y: 500))
-        path.addQuadCurve(to: CGPoint(x: 235, y: 280   ), control: CGPoint(x: 230, y: 450))
-        path.addQuadCurve(to: CGPoint(x: 170, y: 300   ), control: CGPoint(x: 200, y: 350))
-        path.addQuadCurve(to: CGPoint(x: 230, y: 245   ), control: CGPoint(x: 220, y: 295))
-        path.addQuadCurve(to: CGPoint(x: 160, y: 230   ), control: CGPoint(x: 210, y: 280))
-        path.addQuadCurve(to: CGPoint(x: 245, y: 130   ), control: CGPoint(x: 220, y: 230))
-        path.addQuadCurve(to: CGPoint(x: 200, y: 200   ), control: CGPoint(x: 100, y: 210))
-        path.addQuadCurve(to: CGPoint(x: 280, y: 90   ), control: CGPoint(x: 30, y: 230))
-        path.addQuadCurve(to: CGPoint(x: 300, y: 20   ), control: CGPoint(x: 250, y: 60))
-        path.addQuadCurve(to: CGPoint(x: 410, y: 50   ), control: CGPoint(x: 330, y: 120))
-        path.addQuadCurve(to: CGPoint(x: 540, y: 60   ), control: CGPoint(x: 500, y: 0))
-        path.addQuadCurve(to: CGPoint(x: 640, y: 50   ), control: CGPoint(x: 600, y: 0))
-        path.addQuadCurve(to: CGPoint(x: 650, y: 0   ), control: CGPoint(x: 690, y: 100))
-        path.addQuadCurve(to: CGPoint(x: 800, y: 120   ), control: CGPoint(x: 750, y: 0))
-        path.addQuadCurve(to: CGPoint(x: 930, y: 180   ), control: CGPoint(x: 850, y: 240))
-        path.addQuadCurve(to: CGPoint(x: 809, y: 233   ), control: CGPoint(x: 860, y: 335))
-        path.addQuadCurve(to: CGPoint(x: 930, y: 300   ), control: CGPoint(x: 855, y: 359))
-        path.addQuadCurve(to: CGPoint(x: 800, y: 275   ), control: CGPoint(x: 850, y: 460))
-        path.addQuadCurve(to: CGPoint(x: 900, y: 380   ), control: CGPoint(x: 790, y: 419))
-        path.addQuadCurve(to: CGPoint(x: 780, y: 419   ), control: CGPoint(x: 790, y: 459))
-        path.addQuadCurve(to: CGPoint(x: 820, y: 479   ), control: CGPoint(x: 790, y: 479))
-        path.addQuadCurve(to: CGPoint(x: 770, y: 464   ), control: CGPoint(x: 790, y: 479))
-        path.addQuadCurve(to: CGPoint(x: 828, y: 549   ), control: CGPoint(x: 790, y: 529))
-        path.addQuadCurve(to: CGPoint(x: 770, y: 508   ), control: CGPoint(x: 765, y: 529))
-        path.addQuadCurve(to: CGPoint(x: 800, y: 600   ), control: CGPoint(x: 760, y: 550))
-        path.addQuadCurve(to: CGPoint(x: 710, y: 410   ), control: CGPoint(x: 720, y: 590))
-        path.addQuadCurve(to: CGPoint(x: 640, y: 240   ), control: CGPoint(x: 680, y: 150))
-        path.addQuadCurve(to: CGPoint(x: 590, y: 220   ), control: CGPoint(x: 600, y: 210))
-        path.addQuadCurve(to: CGPoint(x: 570, y: 430   ), control: CGPoint(x: 610, y: 320))
-        path.addQuadCurve(to: CGPoint(x: 580, y: 500   ), control: CGPoint(x: 560, y: 470))
-        path.addQuadCurve(to: CGPoint(x: 540, y: 480   ), control: CGPoint(x: 560, y: 510))
-        path.addQuadCurve(to: CGPoint(x: 600, y: 550   ), control: CGPoint(x: 550, y: 530))
-        path.addQuadCurve(to: CGPoint(x: 430, y: 360   ), control: CGPoint(x: 500, y: 550))
-        path.addQuadCurve(to: CGPoint(x: 310, y: 450   ), control: CGPoint(x: 410, y: 430))
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        //        //to Left
-        //        path.move(to: CGPoint(x: 590, y: 220))
-        //        path.addQuadCurve(to: CGPoint(x: 540, y: 500   ), control: CGPoint(x: 610, y: 400))
-        //        path.addQuadCurve(to: CGPoint(x: 550, y: 400   ), control: CGPoint(x: 560, y: 450))
-        //        path.addQuadCurve(to: CGPoint(x: 500, y: 520   ), control: CGPoint(x: 560, y: 450))
-        //        path.addQuadCurve(to: CGPoint(x: 450, y: 220   ), control: CGPoint(x: 560, y: 350))
-        //        path.addQuadCurve(to: CGPoint(x: 400, y: 430   ), control: CGPoint(x: 480, y: 400))
-        //        path.addQuadCurve(to: CGPoint(x: 480, y: 220   ), control: CGPoint(x: 560, y: 430))
-        //        path.addQuadCurve(to: CGPoint(x: 450, y: 450   ), control: CGPoint(x: 580, y: 350))
-        //        path.addQuadCurve(to: CGPoint(x: 590, y: 220   ), control: CGPoint(x: 530, y: 450))
-        //
-        //        path.move(to: CGPoint(x: 450, y: 220))
-        //        path.addQuadCurve(to: CGPoint(x: 310, y: 450   ), control: CGPoint(x: 480, y: 400))
-        //        path.addQuadCurve(to: CGPoint(x: 300, y: 220   ), control: CGPoint(x: 280, y: 400))
-        //        path.addLine(to: CGPoint(x: 450, y: 220))
-        //
-        //
-        //
-        //
-        //        //to Right
-        //        path.move(to: CGPoint(x: 500, y: 120))
-        //        path.addQuadCurve(to: CGPoint(x: 590, y: 550   ), control: CGPoint(x: 330, y: 400))
-        //        path.addQuadCurve(to: CGPoint(x: 540, y: 480   ), control: CGPoint(x: 550, y: 500))
-        //        path.addQuadCurve(to: CGPoint(x: 580, y: 500   ), control: CGPoint(x: 550, y: 500))
-        //        path.addQuadCurve(to: CGPoint(x: 590, y: 220   ), control: CGPoint(x: 540, y: 400))
-        //        path.addQuadCurve(to: CGPoint(x: 500, y: 120   ), control: CGPoint(x: 570, y: 100))
-        //
-
-        
-
-        
-
-
-        
-        
-        
-        
-        
-        
-        
-        return path
-    }
-}
-// MARK: - 右髮輪廓形狀 (Path)
-struct HairCurveRightView: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-
-        
-//        path.move(to: CGPoint(x: 734, y: 512))
-//        path.addQuadCurve(to: CGPoint(x: 800, y: 600   ), control: CGPoint(x: 740, y: 550))
-//        path.addQuadCurve(to: CGPoint(x: 770, y: 508   ), control: CGPoint(x: 765, y: 529))
-//        path.addQuadCurve(to: CGPoint(x: 828, y: 549   ), control: CGPoint(x: 790, y: 529))
-//        path.addQuadCurve(to: CGPoint(x: 770, y: 464   ), control: CGPoint(x: 790, y: 529))
-//        path.addQuadCurve(to: CGPoint(x: 820, y: 479   ), control: CGPoint(x: 790, y: 479))
-//        path.addQuadCurve(to: CGPoint(x: 780, y: 419   ), control: CGPoint(x: 790, y: 479))
-//        path.addQuadCurve(to: CGPoint(x: 900, y: 380   ), control: CGPoint(x: 820, y: 429))
-//        path.addQuadCurve(to: CGPoint(x: 800, y: 275   ), control: CGPoint(x: 790, y: 420))
-//        path.addQuadCurve(to: CGPoint(x: 930, y: 300   ), control: CGPoint(x: 855, y: 459))
-//        path.addQuadCurve(to: CGPoint(x: 809, y: 233   ), control: CGPoint(x: 850, y: 355))
-//        path.addQuadCurve(to: CGPoint(x: 930, y: 180   ), control: CGPoint(x: 860, y: 329))
-//        path.addCurve(
-//            to: CGPoint(x: 580, y: 100),
-//            control1: CGPoint(x: 790, y: 300),
-//            control2: CGPoint(x: 840, y: -50)
-//        )
-//        path.addQuadCurve(to: CGPoint(x: 590, y: 220   ), control: CGPoint(x: 570, y: 160))
-//        path.addLine(to: CGPoint(x: 695, y: 220))
-//        path.addQuadCurve(to: CGPoint(x: 734, y: 512   ), control: CGPoint(x: 750, y: 280))
-//        
-//        path.move(to: CGPoint(x: 640, y: 220))
-//        path.addCurve(
-//            to: CGPoint(x: 700, y: 550),
-//            control1: CGPoint(x: 680, y: 80),
-//            control2: CGPoint(x: 750, y: 350)
-//        )
-//        path.addCurve(
-//            to: CGPoint(x: 620, y: 220),
-//            control1: CGPoint(x: 900, y: 350),
-//            control2: CGPoint(x: 650, y: 20)
-//        )
-        
-        path.move(to: CGPoint(x: 310, y: 450))
-        path.addQuadCurve(to: CGPoint(x: 350, y: 550   ), control: CGPoint(x: 300, y: 470))
-        path.addQuadCurve(to: CGPoint(x: 320, y: 520   ), control: CGPoint(x: 330, y: 540))
-        path.addQuadCurve(to: CGPoint(x: 360, y: 600   ), control: CGPoint(x: 320, y: 550))
-        path.addQuadCurve(to: CGPoint(x: 250, y: 440   ), control: CGPoint(x: 260, y: 550))
-        path.addQuadCurve(to: CGPoint(x: 275, y: 530   ), control: CGPoint(x: 230, y: 500))
-        path.addQuadCurve(to: CGPoint(x: 245, y: 380   ), control: CGPoint(x: 210, y: 520))
-        path.addQuadCurve(to: CGPoint(x: 245, y: 350   ), control: CGPoint(x: 238, y: 360))
-        path.addQuadCurve(to: CGPoint(x: 160, y: 330   ), control: CGPoint(x: 200, y: 500))
-        path.addQuadCurve(to: CGPoint(x: 235, y: 280   ), control: CGPoint(x: 230, y: 450))
-        path.addQuadCurve(to: CGPoint(x: 170, y: 300   ), control: CGPoint(x: 200, y: 350))
-        path.addQuadCurve(to: CGPoint(x: 230, y: 245   ), control: CGPoint(x: 220, y: 295))
-        path.addQuadCurve(to: CGPoint(x: 160, y: 230   ), control: CGPoint(x: 210, y: 280))
-        path.addQuadCurve(to: CGPoint(x: 245, y: 130   ), control: CGPoint(x: 220, y: 230))
-        path.addQuadCurve(to: CGPoint(x: 200, y: 200   ), control: CGPoint(x: 100, y: 210))
-        path.addQuadCurve(to: CGPoint(x: 280, y: 90   ), control: CGPoint(x: 30, y: 230))
-        path.addQuadCurve(to: CGPoint(x: 300, y: 20   ), control: CGPoint(x: 250, y: 60))
-        path.addQuadCurve(to: CGPoint(x: 410, y: 50   ), control: CGPoint(x: 330, y: 120))
-        path.addQuadCurve(to: CGPoint(x: 540, y: 60   ), control: CGPoint(x: 500, y: 0))
-        path.addQuadCurve(to: CGPoint(x: 640, y: 50   ), control: CGPoint(x: 600, y: 0))
-        path.addQuadCurve(to: CGPoint(x: 650, y: 0   ), control: CGPoint(x: 690, y: 100))
-        path.addQuadCurve(to: CGPoint(x: 800, y: 120   ), control: CGPoint(x: 750, y: 0))
-        path.addQuadCurve(to: CGPoint(x: 930, y: 180   ), control: CGPoint(x: 850, y: 240))
-        path.addQuadCurve(to: CGPoint(x: 809, y: 233   ), control: CGPoint(x: 860, y: 335))
-        path.addQuadCurve(to: CGPoint(x: 930, y: 300   ), control: CGPoint(x: 855, y: 359))
-        path.addQuadCurve(to: CGPoint(x: 800, y: 275   ), control: CGPoint(x: 850, y: 460))
-        path.addQuadCurve(to: CGPoint(x: 900, y: 380   ), control: CGPoint(x: 790, y: 419))
-        path.addQuadCurve(to: CGPoint(x: 780, y: 419   ), control: CGPoint(x: 790, y: 459))
-        path.addQuadCurve(to: CGPoint(x: 820, y: 479   ), control: CGPoint(x: 790, y: 479))
-        path.addQuadCurve(to: CGPoint(x: 770, y: 464   ), control: CGPoint(x: 790, y: 479))
-        path.addQuadCurve(to: CGPoint(x: 828, y: 549   ), control: CGPoint(x: 790, y: 529))
-        path.addQuadCurve(to: CGPoint(x: 770, y: 508   ), control: CGPoint(x: 765, y: 529))
-        path.addQuadCurve(to: CGPoint(x: 800, y: 600   ), control: CGPoint(x: 760, y: 550))
-        path.addQuadCurve(to: CGPoint(x: 710, y: 410   ), control: CGPoint(x: 720, y: 590))
-        path.addQuadCurve(to: CGPoint(x: 640, y: 240   ), control: CGPoint(x: 680, y: 150))
-        path.addQuadCurve(to: CGPoint(x: 590, y: 220   ), control: CGPoint(x: 600, y: 210))
-        path.addQuadCurve(to: CGPoint(x: 570, y: 430   ), control: CGPoint(x: 610, y: 320))
-        path.addQuadCurve(to: CGPoint(x: 580, y: 500   ), control: CGPoint(x: 560, y: 470))
-        path.addQuadCurve(to: CGPoint(x: 540, y: 480   ), control: CGPoint(x: 560, y: 510))
-        path.addQuadCurve(to: CGPoint(x: 600, y: 550   ), control: CGPoint(x: 550, y: 530))
-        path.addQuadCurve(to: CGPoint(x: 430, y: 360   ), control: CGPoint(x: 500, y: 550))
-        path.addQuadCurve(to: CGPoint(x: 310, y: 450   ), control: CGPoint(x: 410, y: 430))
-        
-        
-        
-        
-//        
-//        
-//        path.move(to: CGPoint(x: 580, y: 220))
-//        path.addCurve(
-//            to: CGPoint(x: 890, y: 320),
-//            control1: CGPoint(x: 920, y: 140),
-//            control2: CGPoint(x: 600, y: 450)
-//        )
-//        path.addCurve(
-//            to: CGPoint(x: 580, y: 65),
-//            control1: CGPoint(x: 650, y: 250),
-//            control2: CGPoint(x: 980, y: 60)
-//        )
-//        //1
-//        path.move(to: CGPoint(x: 640, y: 220))
-//        path.addCurve(
-//            to: CGPoint(x: 700, y: 550),
-//            control1: CGPoint(x: 680, y: 80),
-//            control2: CGPoint(x: 750, y: 350)
-//        )
-//        path.addCurve(
-//            to: CGPoint(x: 580, y: 220),
-//            control1: CGPoint(x: 900, y: 350),
-//            control2: CGPoint(x: 650, y: 20)
-//        )
-//        //2
-//        path.move(to: CGPoint(x: 680, y: 220))
-//        path.addCurve(
-//            to: CGPoint(x: 800, y: 600),
-//            control1: CGPoint(x: 840, y: 160),
-//            control2: CGPoint(x: 600, y: 450)
-//        )
-//        path.addCurve(
-//            to: CGPoint(x: 620, y: 220),
-//            control1: CGPoint(x: 700, y: 450),
-//            control2: CGPoint(x: 890, y: 60)
-//        )
-//        //3
-//        path.move(to: CGPoint(x: 700, y: 220))
-//        path.addCurve(
-//            to: CGPoint(x: 830, y: 550),
-//            control1: CGPoint(x: 920, y: 140),
-//            control2: CGPoint(x: 600, y: 450)
-//        )
-//        path.addCurve(
-//            to: CGPoint(x: 680, y: 220),
-//            control1: CGPoint(x: 650, y: 450),
-//            control2: CGPoint(x: 960, y: 60)
-//        )
-//
-//        //4
-//        path.move(to: CGPoint(x: 680, y: 210))
-//        path.addCurve(
-//            to: CGPoint(x: 820, y: 480),
-//            control1: CGPoint(x: 920, y: 140),
-//            control2: CGPoint(x: 600, y: 450)
-//        )
-//        path.addCurve(
-//            to: CGPoint(x: 660, y: 200),
-//            control1: CGPoint(x: 690, y: 450),
-//            control2: CGPoint(x: 960, y: 60)
-//        )
-//        //5
-//        path.move(to: CGPoint(x: 660, y: 220))
-//        path.addCurve(
-//            to: CGPoint(x: 780, y: 500),
-//            control1: CGPoint(x: 830, y: 150),
-//            control2: CGPoint(x: 820, y: 350)
-//        )
-//        path.addCurve(
-//            to: CGPoint(x: 620, y: 220),
-//            control1: CGPoint(x: 860, y: 350),
-//            control2: CGPoint(x: 810, y: 120)
-//        )
-//        //6
-//        path.move(to: CGPoint(x: 720, y: 210))
-//        path.addCurve(
-//            to: CGPoint(x: 900, y: 380),
-//            control1: CGPoint(x: 920, y: 140),
-//            control2: CGPoint(x: 600, y: 550)
-//        )
-//        path.addCurve(
-//            to: CGPoint(x: 700, y: 200),
-//            control1: CGPoint(x: 690, y: 450),
-//            control2: CGPoint(x: 920, y: 50)
-//        )
-//        //7
-//        path.move(to: CGPoint(x: 680, y: 160))
-//        path.addCurve(
-//            to: CGPoint(x: 930, y: 300),
-//            control1: CGPoint(x: 820, y: 90),
-//            control2: CGPoint(x: 800, y: 550)
-//        )
-//        path.addCurve(
-//            to: CGPoint(x: 660, y: 140),
-//            control1: CGPoint(x: 790, y: 400),
-//            control2: CGPoint(x: 820, y: 50)
-//        )
-//        //8
-//        path.move(to: CGPoint(x: 600, y: 100))
-//        path.addCurve(
-//            to: CGPoint(x: 930, y: 180),
-//            control1: CGPoint(x: 820, y: 40),
-//            control2: CGPoint(x: 800, y: 450)
-//        )
-//        path.addCurve(
-//            to: CGPoint(x: 580, y: 100),
-//            control1: CGPoint(x: 790, y: 300),
-//            control2: CGPoint(x: 840, y: -50)
-//        )
-//
-//        //9
-//        path.move(to: CGPoint(x: 635, y: 105))
-//        path.addCurve(
-//            to: CGPoint(x: 770, y: 60),
-//            control1: CGPoint(x: 650, y: 180),
-//            control2: CGPoint(x: 650, y: 50)
-//        )
-//        path.addCurve(
-//            to: CGPoint(x: 635, y: 105),
-//            control1: CGPoint(x: 700, y: 50),
-//            control2: CGPoint(x: 650, y: 50)
-//        )
-
-        return path
-    }
-}
-
-// MARK: - 中間向左髮輪廓形狀 (Path)
-struct HairCurveMidtoLeftView: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-        
-        
-        
-        path.move(to: CGPoint(x: 590, y: 220))
-        path.addQuadCurve(to: CGPoint(x: 540, y: 500   ), control: CGPoint(x: 610, y: 400))
-        path.addQuadCurve(to: CGPoint(x: 550, y: 400   ), control: CGPoint(x: 560, y: 450))
-        path.addQuadCurve(to: CGPoint(x: 500, y: 520   ), control: CGPoint(x: 560, y: 450))
-        path.addQuadCurve(to: CGPoint(x: 450, y: 220   ), control: CGPoint(x: 560, y: 350))
-        path.addQuadCurve(to: CGPoint(x: 400, y: 430   ), control: CGPoint(x: 480, y: 400))
-        path.addQuadCurve(to: CGPoint(x: 480, y: 220   ), control: CGPoint(x: 560, y: 430))
-        path.addQuadCurve(to: CGPoint(x: 450, y: 450   ), control: CGPoint(x: 580, y: 350))
-        path.addQuadCurve(to: CGPoint(x: 590, y: 220   ), control: CGPoint(x: 530, y: 450))
-        
-        path.move(to: CGPoint(x: 450, y: 220))
-        path.addQuadCurve(to: CGPoint(x: 310, y: 450   ), control: CGPoint(x: 480, y: 400))
-        path.addQuadCurve(to: CGPoint(x: 300, y: 220   ), control: CGPoint(x: 280, y: 400))
-        path.addLine(to: CGPoint(x: 450, y: 220))
-//
-//        
-//        
-//        
-//        path.move(to: CGPoint(x: 450, y: 220))
-//        path.addCurve(
-//            to: CGPoint(x: 220, y: 440),
-//            control1: CGPoint(x: 300, y: 200),
-//            control2: CGPoint(x: 600, y: 450)
-//        )
-//        path.addCurve(
-//            to: CGPoint(x: 450, y: 160),
-//            control1: CGPoint(x: 470, y: 250),
-//            control2: CGPoint(x: 280, y: 160)
-//        )
-//
-//        path.move(to: CGPoint(x: 550, y: 140))
-//        path.addCurve(
-//            to: CGPoint(x: 500, y: 520),
-//            control1: CGPoint(x: 620, y: 140),
-//            control2: CGPoint(x: 600, y: 450)
-//        )
-//        path.addCurve(
-//            to: CGPoint(x: 550, y: 140),
-//            control1: CGPoint(x: 600, y: 250),
-//            control2: CGPoint(x: 480, y: 60)
-//        )
-//
-//        path.move(to: CGPoint(x: 550, y: 120))
-//        path.addCurve(
-//            to: CGPoint(x: 550, y: 480),
-//            control1: CGPoint(x: 620, y: 140),
-//            control2: CGPoint(x: 600, y: 450)
-//        )
-//        path.addCurve(
-//            to: CGPoint(x: 550, y: 120),
-//            control1: CGPoint(x: 650, y: 250),
-//            control2: CGPoint(x: 480, y: 60)
-//        )
-//
-//
-//
-//        path.move(to: CGPoint(x: 500, y: 120))
-//        path.addCurve(
-//            to: CGPoint(x: 450, y: 450),
-//            control1: CGPoint(x: 620, y: 140),
-//            control2: CGPoint(x: 600, y: 450)
-//        )
-//        path.addCurve(
-//            to: CGPoint(x: 500, y: 120),
-//            control1: CGPoint(x: 550, y: 350),
-//            control2: CGPoint(x: 480, y: 160)
-//        )
-//
-//        path.move(to: CGPoint(x: 500, y: 150))
-//        path.addCurve(
-//            to: CGPoint(x: 400, y: 430),
-//            control1: CGPoint(x: 520, y: 140),
-//            control2: CGPoint(x: 600, y: 450)
-//        )
-//        path.addCurve(
-//            to: CGPoint(x: 480, y: 150),
-//            control1: CGPoint(x: 550, y: 350),
-//            control2: CGPoint(x: 380, y: 160)
-//        )
-//
-//        path.move(to: CGPoint(x: 450, y: 120))
-//        path.addCurve(
-//            to: CGPoint(x: 320, y: 440),
-//            control1: CGPoint(x: 400, y: 140),
-//            control2: CGPoint(x: 500, y: 450)
-//        )
-//        path.addCurve(
-//            to: CGPoint(x: 430, y: 120),
-//            control1: CGPoint(x: 470, y: 350),
-//            control2: CGPoint(x: 380, y: 160)
-//        )
-
-        return path
-    }
-}
-// MARK: - 中間向右髮輪廓形狀 (Path)
-struct HairCurveMidtoRightView: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-        
-        
-        
-        
-        path.move(to: CGPoint(x: 500, y: 120))
-        path.addQuadCurve(to: CGPoint(x: 590, y: 550   ), control: CGPoint(x: 330, y: 400))
-        path.addQuadCurve(to: CGPoint(x: 540, y: 480   ), control: CGPoint(x: 550, y: 500))
-        path.addQuadCurve(to: CGPoint(x: 580, y: 500   ), control: CGPoint(x: 550, y: 500))
-        path.addQuadCurve(to: CGPoint(x: 590, y: 220   ), control: CGPoint(x: 540, y: 400))
-        path.addQuadCurve(to: CGPoint(x: 500, y: 120   ), control: CGPoint(x: 570, y: 100))
-        
-
-//
-//
-//        path.move(to: CGPoint(x: 500, y: 100))
-//        path.addCurve(
-//            to: CGPoint(x: 590, y: 550),
-//            control1: CGPoint(x: 420, y: 140),
-//            control2: CGPoint(x: 400, y: 450)
-//        )
-//        path.addCurve(
-//            to: CGPoint(x: 500, y: 100),
-//            control1: CGPoint(x: 390, y: 250),
-//            control2: CGPoint(x: 580, y: 160)
-//        )
-//
-//        path.move(to: CGPoint(x: 550, y: 200))
-//        path.addCurve(
-//            to: CGPoint(x: 580, y: 500),
-//            control1: CGPoint(x: 420, y: 140),
-//            control2: CGPoint(x: 400, y: 450)
-//        )
-//        path.addCurve(
-//            to: CGPoint(x: 550, y: 220),
-//            control1: CGPoint(x: 390, y: 250),
-//            control2: CGPoint(x: 580, y: 160)
-//        )
-//
-//        path.move(to: CGPoint(x: 560, y: 200))
-//        path.addCurve(
-//            to: CGPoint(x: 600, y: 420),
-//            control1: CGPoint(x: 420, y: 240),
-//            control2: CGPoint(x: 400, y: 450)
-//        )
-//        path.addCurve(
-//            to: CGPoint(x: 580, y: 200),
-//            control1: CGPoint(x: 420, y: 390),
-//            control2: CGPoint(x: 480, y: 250)
-//        )
-//
-//        path.move(to: CGPoint(x: 500, y: 100))
-//        path.addCurve(
-//            to: CGPoint(x: 500, y: 420),
-//            control1: CGPoint(x: 420, y: 240),
-//            control2: CGPoint(x: 400, y: 450)
-//        )
-//        path.addCurve(
-//            to: CGPoint(x: 580, y: 200),
-//            control1: CGPoint(x: 420, y: 390),
-//            control2: CGPoint(x: 480, y: 250)
-//        )
-
-        return path
-    }
-}
-// MARK: - 左邊髮輪廓形狀 (Path)
-struct HairCurveLeftView: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-
-        path.move(to: CGPoint(x: 580, y: 220))
-        path.addCurve(
-            to: CGPoint(x: 150, y: 320),
-            control1: CGPoint(x: 120, y: 140),
-            control2: CGPoint(x: 600, y: 450)
-        )
-        path.addCurve(
-            to: CGPoint(x: 580, y: 65),
-            control1: CGPoint(x: 330, y: 250),
-            control2: CGPoint(x: 130, y: 40)
-        )
-
-        path.move(to: CGPoint(x: 340, y: 220))
-        path.addCurve(
-            to: CGPoint(x: 270, y: 620),
-            control1: CGPoint(x: 180, y: 240),
-            control2: CGPoint(x: 400, y: 450)
-        )
-        path.addCurve(
-            to: CGPoint(x: 300, y: 200),
-            control1: CGPoint(x: 400, y: 450),
-            control2: CGPoint(x: 120, y: 290)
-        )
-        path.move(to: CGPoint(x: 340, y: 200))
-        path.addCurve(
+        path.addQuadCurve(
             to: CGPoint(x: 350, y: 550),
-            control1: CGPoint(x: 340, y: 240),
-            control2: CGPoint(x: 260, y: 450)
+            control: CGPoint(x: 300, y: 470)
         )
-        path.addCurve(
-            to: CGPoint(x: 320, y: 180),
-            control1: CGPoint(x: 200, y: 450),
-            control2: CGPoint(x: 320, y: 190)
+        path.addQuadCurve(
+            to: CGPoint(x: 320, y: 520),
+            control: CGPoint(x: 330, y: 540)
         )
-
-        path.move(to: CGPoint(x: 340, y: 220))
-        path.addCurve(
-            to: CGPoint(x: 350, y: 600),
-            control1: CGPoint(x: 340, y: 240),
-            control2: CGPoint(x: 260, y: 450)
+        path.addQuadCurve(
+            to: CGPoint(x: 360, y: 600),
+            control: CGPoint(x: 320, y: 550)
         )
-        path.addCurve(
-            to: CGPoint(x: 320, y: 220),
-            control1: CGPoint(x: 200, y: 450),
-            control2: CGPoint(x: 320, y: 190)
+        path.addQuadCurve(
+            to: CGPoint(x: 230, y: 470),
+            control: CGPoint(x: 260, y: 550)
         )
-
-        path.move(to: CGPoint(x: 300, y: 220))
-        path.addCurve(
-            to: CGPoint(x: 350, y: 630),
-            control1: CGPoint(x: 240, y: 240),
-            control2: CGPoint(x: 260, y: 450)
+        path.addQuadCurve(
+            to: CGPoint(x: 255, y: 580),
+            control: CGPoint(x: 220, y: 540)
         )
-        path.addCurve(
-            to: CGPoint(x: 280, y: 200),
-            control1: CGPoint(x: 160, y: 450),
-            control2: CGPoint(x: 280, y: 190)
+        path.addQuadCurve(
+            to: CGPoint(x: 205, y: 430),
+            control: CGPoint(x: 200, y: 560)
         )
-
-        path.move(to: CGPoint(x: 260, y: 420))
-        path.addCurve(
-            to: CGPoint(x: 280, y: 530),
-            control1: CGPoint(x: 240, y: 440),
-            control2: CGPoint(x: 240, y: 520)
+        path.addQuadCurve(
+            to: CGPoint(x: 80, y: 390),
+            control: CGPoint(x: 200, y: 500)
         )
-        path.addCurve(
-            to: CGPoint(x: 260, y: 400),
-            control1: CGPoint(x: 220, y: 550),
-            control2: CGPoint(x: 220, y: 320)
+        path.addQuadCurve(
+            to: CGPoint(x: 185, y: 320),
+            control: CGPoint(x: 170, y: 400)
         )
-
-        path.move(to: CGPoint(x: 300, y: 160))
-        path.addCurve(
-            to: CGPoint(x: 160, y: 330),
-            control1: CGPoint(x: 260, y: 340),
-            control2: CGPoint(x: 240, y: 420)
+        path.addQuadCurve(
+            to: CGPoint(x: 100, y: 300),
+            control: CGPoint(x: 130, y: 380)
         )
-        path.addCurve(
-            to: CGPoint(x: 270, y: 160),
-            control1: CGPoint(x: 220, y: 350),
-            control2: CGPoint(x: 220, y: 320)
+        path.addQuadCurve(
+            to: CGPoint(x: 160, y: 245),
+            control: CGPoint(x: 220, y: 295)
         )
-
-        path.move(to: CGPoint(x: 350, y: 140))
-        path.addCurve(
-            to: CGPoint(x: 160, y: 230),
-            control1: CGPoint(x: 240, y: 140),
-            control2: CGPoint(x: 260, y: 320)
+        path.addQuadCurve(
+            to: CGPoint(x: 205, y: 130),
+            control: CGPoint(x: 220, y: 230)
         )
-        path.addCurve(
-            to: CGPoint(x: 330, y: 120),
-            control1: CGPoint(x: 260, y: 240),
-            control2: CGPoint(x: 220, y: 20)
+        path.addQuadCurve(
+            to: CGPoint(x: 150, y: 230),
+            control: CGPoint(x: 100, y: 210)
         )
-        path.move(to: CGPoint(x: 300, y: 560))
-        path.addCurve(
-            to: CGPoint(x: 180, y: 830),
-            control1: CGPoint(x: 340, y: 840),
-            control2: CGPoint(x: 280, y: 860)
+        path.addQuadCurve(
+            to: CGPoint(x: 240, y: 70),
+            control: CGPoint(x: 30, y: 230)
         )
-        path.addCurve(
-            to: CGPoint(x: 300, y: 560),
-            control1: CGPoint(x: 280, y: 940),
-            control2: CGPoint(x: 420, y: 820)
-        )
-
-        return path
-    }
-}
-// MARK: - 上面髮輪廓形狀 (Path)
-struct HairCurveTopView: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-
-        path.move(to: CGPoint(x: 550, y: 100))
-        path.addCurve(
-            to: CGPoint(x: 200, y: 200),
-            control1: CGPoint(x: 320, y: 40),
-            control2: CGPoint(x: 60, y: 220)
-        )
-        path.addCurve(
-            to: CGPoint(x: 530, y: 80),
-            control1: CGPoint(x: 20, y: 290),
-            control2: CGPoint(x: 220, y: 20)
-        )
-
-        path.move(to: CGPoint(x: 550, y: 100))
-        path.addCurve(
+        path.addQuadCurve(
             to: CGPoint(x: 300, y: 20),
-            control1: CGPoint(x: 520, y: -20),
-            control2: CGPoint(x: 200, y: 220)
+            control: CGPoint(x: 250, y: 60)
         )
-        path.addCurve(
-            to: CGPoint(x: 570, y: 80),
-            control1: CGPoint(x: 350, y: 170),
-            control2: CGPoint(x: 420, y: -60)
+        path.addQuadCurve(
+            to: CGPoint(x: 410, y: 50),
+            control: CGPoint(x: 330, y: 120)
         )
-
-        path.move(to: CGPoint(x: 520, y: 80))
-        path.addCurve(
+        path.addQuadCurve(
+            to: CGPoint(x: 540, y: 60),
+            control: CGPoint(x: 500, y: 0)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 640, y: 50),
+            control: CGPoint(x: 600, y: 0)
+        )
+        path.addQuadCurve(
             to: CGPoint(x: 650, y: 0),
-            control1: CGPoint(x: 620, y: -20),
-            control2: CGPoint(x: 700, y: 140)
+            control: CGPoint(x: 690, y: 100)
         )
-        path.addCurve(
-            to: CGPoint(x: 590, y: 120),
-            control1: CGPoint(x: 680, y: 50),
-            control2: CGPoint(x: 820, y: 90)
+        path.addQuadCurve(
+            to: CGPoint(x: 800, y: 120),
+            control: CGPoint(x: 750, y: 0)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 950, y: 180),
+            control: CGPoint(x: 850, y: 240)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 829, y: 233),
+            control: CGPoint(x: 860, y: 335)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 970, y: 300),
+            control: CGPoint(x: 855, y: 359)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 800, y: 275),
+            control: CGPoint(x: 850, y: 460)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 930, y: 380),
+            control: CGPoint(x: 790, y: 419)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 820, y: 419),
+            control: CGPoint(x: 840, y: 459)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 890, y: 549),
+            control: CGPoint(x: 790, y: 529)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 770, y: 508),
+            control: CGPoint(x: 765, y: 579)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 830, y: 640),
+            control: CGPoint(x: 760, y: 550)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 710, y: 410),
+            control: CGPoint(x: 720, y: 590)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 640, y: 240),
+            control: CGPoint(x: 680, y: 150)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 590, y: 220),
+            control: CGPoint(x: 600, y: 210)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 570, y: 430),
+            control: CGPoint(x: 610, y: 320)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 590, y: 520),
+            control: CGPoint(x: 560, y: 470)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 540, y: 480),
+            control: CGPoint(x: 560, y: 510)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 600, y: 550),
+            control: CGPoint(x: 550, y: 530)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 430, y: 360),
+            control: CGPoint(x: 500, y: 550)
+        )
+        path.addQuadCurve(
+            to: CGPoint(x: 310, y: 450),
+            control: CGPoint(x: 410, y: 430)
         )
 
         return path
-    }
-}
-// MARK: - 右下髮輪廓形狀 (Path)
-struct HairCurveBotView: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-
-        path.move(to: CGPoint(x: 720, y: 560))
-        path.addCurve(
-            to: CGPoint(x: 780, y: 800),
-            control1: CGPoint(x: 720, y: 640),
-            control2: CGPoint(x: 700, y: 820)
-        )
-        path.addCurve(
-            to: CGPoint(x: 720, y: 560),
-            control1: CGPoint(x: 620, y: 920),
-            control2: CGPoint(x: 690, y: 620)
-        )
-
-        path.move(to: CGPoint(x: 650, y: 665))
-        path.addCurve(
-            to: CGPoint(x: 720, y: 860),
-            control1: CGPoint(x: 660, y: 700),
-            control2: CGPoint(x: 660, y: 820)
-        )
-        path.addCurve(
-            to: CGPoint(x: 650, y: 665),
-            control1: CGPoint(x: 580, y: 900),
-            control2: CGPoint(x: 620, y: 650)
-        )
-
-        path.move(to: CGPoint(x: 680, y: 630))
-        path.addCurve(
-            to: CGPoint(x: 780, y: 900),
-            control1: CGPoint(x: 660, y: 640),
-            control2: CGPoint(x: 700, y: 920)
-        )
-        path.addCurve(
-            to: CGPoint(x: 660, y: 658),
-            control1: CGPoint(x: 670, y: 920),
-            control2: CGPoint(x: 660, y: 920)
-        )
-
-        return path
-    }
-}
-// MARK: - 頭髮
-struct HairView: View {
-    var body: some View {
-        Ellipse()
-            .fill(Color.portraitHairDark)
-            .frame(width: 480, height: 640)
-            .offset(x: 0, y: -210)
     }
 }
 
@@ -1099,6 +637,53 @@ struct NoseView: View {
     }
 }
 
+// MARK: - 頭髮飾品
+struct HairDecorateView: View {
+    var body: some View {
+        Group {
+
+            Rectangle()
+                .fill(Color.portraitBand)
+                .frame(width: 40, height: 40)
+                .rotationEffect(Angle(degrees: 45))
+                .offset(x: 7 * distanceA, y: -12 * distanceA)
+
+            Rectangle()
+                .stroke(Color.portraitBand, lineWidth: 9)
+                //.fill(Color.portraitBand)
+                .frame(width: 40, height: 40)
+                .rotationEffect(Angle(degrees: 45))
+                .offset(x: 9 * distanceA, y: -14 * distanceA)
+
+            Rectangle()
+                .fill(Color.portraitBand)
+                .frame(width: 40, height: 40)
+                .rotationEffect(Angle(degrees: 45))
+                .offset(x: distanceA, y: -12 * distanceA)
+
+            Rectangle()
+                .stroke(Color.portraitBand, lineWidth: 9)
+                //.fill(Color.portraitBand)
+                .frame(width: 40, height: 40)
+                .rotationEffect(Angle(degrees: 45))
+                .offset(x: -2 * distanceA, y: -14 * distanceA)
+
+            Rectangle()
+                .fill(Color.portraitBand)
+                .frame(width: 40, height: 40)
+                .rotationEffect(Angle(degrees: 45))
+                .offset(x: -5 * distanceA, y: -12 * distanceA)
+
+            Rectangle()
+                .stroke(Color.portraitBand, lineWidth: 9)
+                //.fill(Color.portraitBand)
+                .frame(width: 40, height: 40)
+                .rotationEffect(Angle(degrees: 45))
+                .offset(x: -8 * distanceA, y: -14 * distanceA)
+
+        }
+    }
+}
 // MARK: - 脖子飾條
 struct NeckTieView: View {
     var body: some View {
@@ -1442,6 +1027,12 @@ struct BadgesView: View {
                 .fill(Color.portraitShadow)
                 .frame(width: 65, height: 10)
                 .offset(x: -4 * distanceB, y: 7.25 * distanceB)
+            Rectangle()
+                .trim(from: 0.1, to: 0.5)
+                .stroke(Color.white, lineWidth: 5)
+                .frame(width: 125, height: 125)
+                .rotationEffect(Angle(degrees: 270))
+                .offset(x: -4 * distanceB, y: 8 * distanceB)
 
             //綠色
             Rectangle()
@@ -1460,6 +1051,12 @@ struct BadgesView: View {
                 .fill(Color.portraitShadow)
                 .frame(width: 65, height: 10)
                 .offset(x: -2 * distanceB, y: 9.25 * distanceB)
+            Rectangle()
+                .trim(from: 0.1, to: 0.5)
+                .stroke(Color.white, lineWidth: 5)
+                .frame(width: 125, height: 125)
+                .rotationEffect(Angle(degrees: 270))
+                .offset(x: -2 * distanceB, y: 10 * distanceB)
 
             //橘色
             Rectangle()
@@ -1482,6 +1079,13 @@ struct BadgesView: View {
                 .frame(width: 65, height: 10)
                 .offset(x: -4 * distanceB, y: 7.25 * distanceB)
                 .scaleEffect(x: -1, y: 1)
+            Rectangle()
+                .trim(from: 0.1, to: 0.5)
+                .stroke(Color.white, lineWidth: 5)
+                .frame(width: 125, height: 125)
+                .rotationEffect(Angle(degrees: 270))
+                .offset(x: -4 * distanceB, y: 8 * distanceB)
+                .scaleEffect(x: -1, y: 1)
 
             //黃色
             Rectangle()
@@ -1503,6 +1107,13 @@ struct BadgesView: View {
                 .fill(Color.portraitShadow)
                 .frame(width: 65, height: 10)
                 .offset(x: -2 * distanceB, y: 9.25 * distanceB)
+                .scaleEffect(x: -1, y: 1)
+            Rectangle()
+                .trim(from: 0.1, to: 0.5)
+                .stroke(Color.white, lineWidth: 5)
+                .frame(width: 125, height: 125)
+                .rotationEffect(Angle(degrees: 270))
+                .offset(x: -2 * distanceB, y: 10 * distanceB)
                 .scaleEffect(x: -1, y: 1)
 
         }
